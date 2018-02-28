@@ -1,7 +1,7 @@
 # ClickHouseConnector
-ClickHouse connector for python using pandas.
+Create clickhouse_driver.pandasConnector module, it is ClickHouse connector for python using pandas.
 
-Using your query returns pandas DataFrame.
+Using your query, module returns pandas DataFrame.
 
 repo: https://github.com/mymarilyn/clickhouse-driver
 
