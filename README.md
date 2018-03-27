@@ -7,7 +7,7 @@ repo: https://github.com/mymarilyn/clickhouse-driver
 
 ### Installing:
 ```
-git clone https://github.com/mymarilyn/clickhouse-driver
+git clone https://github.com/romario076/ClickHouseConnector
 
 After that, put all contents into: C:\Users\UserName\Anaconda2\Lib\site-packages
 ```
