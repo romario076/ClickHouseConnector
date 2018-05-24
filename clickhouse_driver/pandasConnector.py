@@ -43,39 +43,3 @@ class pandasConnector(object):
 
 
 
-# symbols= ["BTC-USD", "LTC-USD", "LTC-BTC"]
-# date= '2018-01-19'
-# t1="09:20:00"
-# t2="17:00:00"
-# host="10.12.1.60"
-# db="tick"
-#
-# conn = Client(host)
-# conn.execute("use " + str(db), columnar=True)
-# tt= conn.execute("select Ticker, Time, tPrice from Crypto limit 10", columnar=True, with_column_types=True)
-# columns= [x[0] for x in tt[1]]
-#
-# ss= "','".join(symbols)
-# conn = pandasConnector(host="10.12.1.60", db="tick")
-# query= "select concat(cast(XTime as char),'.',cast(XTimeMicro as char)) as Time1, \
-#             Ticker, Type, Level, L1_AskP, L1_BidP from Crypto_Test where \
-#         TradeDate='"+date+"' and Ticker in ('"+ss+"') and (Level=1) limit 10"
-# data= conn.read_sql_query(query, tableName="Crypto")
-
-
-# from clickhouse_driver import Client
-#
-# conn = Client(host)
-# conn.execute("use " + str(db), columnar=True)
-# conn.execute("show tables")
-#
-# tt= conn.execute("select Ticker, Time, tPrice from tick.Crypto_Test limit 10", columnar=True, with_column_types=True)
-#
-# ss= "','".join(symbols)
-# conn = pandasConnector(host="10.12.1.60", db="tick")
-# query= "select concat(cast(XTime as char),'.',cast(XTimeMicro as char)) as Time1, \
-#             Ticker, Type, Level, L1_AskP, L1_BidP from Crypto_Test where \
-#          Ticker = 'BTCUSD' and (Level=1) limit 10"
-# data= conn.read_sql_query(query, tableName="Crypto")
-# print(data.head())
-
