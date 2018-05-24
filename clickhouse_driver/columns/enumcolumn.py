@@ -1,4 +1,9 @@
-from enumFix import Enum
+import sys
+
+if sys.version_info > (3,0):
+    from .enumFix27 import Enum
+else:
+    from .enumFix3 import Enum
 
 from .. import errors
 from ..util import compat

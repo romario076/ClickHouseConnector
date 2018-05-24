@@ -3,9 +3,9 @@ from clickhouse_driver import Client
 import pandas as pd
 
 class pandasConnector(object):
-    def __init__(self, host, db):
+    def __init__(self, host, db ):
         self.db= db
-        self.conn = Client(host)
+        self.conn = Client(host=host)
         self.useDB()
         self.checkTables()
 
@@ -39,7 +39,7 @@ class pandasConnector(object):
                             dataDataFrame.columns = columns
                 else:
                     print("Wrong table name!")
-        return dataDataFrame
+        return (dataDataFrame)
 
 
 
@@ -58,7 +58,24 @@ class pandasConnector(object):
 # ss= "','".join(symbols)
 # conn = pandasConnector(host="10.12.1.60", db="tick")
 # query= "select concat(cast(XTime as char),'.',cast(XTimeMicro as char)) as Time1, \
-#             Ticker, Type, Level, L1_AskP, L1_BidP from Crypto where \
+#             Ticker, Type, Level, L1_AskP, L1_BidP from Crypto_Test where \
 #         TradeDate='"+date+"' and Ticker in ('"+ss+"') and (Level=1) limit 10"
-#data= conn.read_sql_query(query, tableName="Crypto")
+# data= conn.read_sql_query(query, tableName="Crypto")
+
+
+# from clickhouse_driver import Client
+#
+# conn = Client(host)
+# conn.execute("use " + str(db), columnar=True)
+# conn.execute("show tables")
+#
+# tt= conn.execute("select Ticker, Time, tPrice from tick.Crypto_Test limit 10", columnar=True, with_column_types=True)
+#
+# ss= "','".join(symbols)
+# conn = pandasConnector(host="10.12.1.60", db="tick")
+# query= "select concat(cast(XTime as char),'.',cast(XTimeMicro as char)) as Time1, \
+#             Ticker, Type, Level, L1_AskP, L1_BidP from Crypto_Test where \
+#          Ticker = 'BTCUSD' and (Level=1) limit 10"
+# data= conn.read_sql_query(query, tableName="Crypto")
+# print(data.head())
 
