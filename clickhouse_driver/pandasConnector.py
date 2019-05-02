@@ -3,9 +3,9 @@ from clickhouse_driver import Client
 import pandas as pd
 
 class pandasConnector(object):
-    def __init__(self, host, db ):
+    def __init__(self, host, user='default', password='', db=''):
         self.db= db
-        self.conn = Client(host=host)
+        self.conn = Client(host=host, user=user, password=password)
         self.useDB()
         self.checkTables()
 
@@ -40,6 +40,3 @@ class pandasConnector(object):
                 else:
                     print("Wrong table name!")
         return (dataDataFrame)
-
-
-
